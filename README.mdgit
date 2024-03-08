@@ -1,0 +1,1 @@
+"# sbc_frontend"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/dwalke97/sbc_frontend.gitgit push -u origin main
