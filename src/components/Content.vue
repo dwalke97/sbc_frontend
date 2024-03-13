@@ -48,7 +48,7 @@ const filteredCbcs = computed(() =>{
 })
 
 function getLink(id){
-	return `details/${id}`
+	return `sbc_frontend/details/${id}`
 }
 
 

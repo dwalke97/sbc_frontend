@@ -4,8 +4,8 @@ import About from "../components/about/About.vue";
 import Disclaimer from "../components/disclaimer/Disclaimer.vue";
 
 export const routes = [
-	{ path: '/', component: TableInput },
-	{ path: '/about', component: About },
-	{ path: '/disclaimer', component: Disclaimer },
-	{ path: '/details/:id', component: DetailContent}
+	{ path: '/sbc_frontend', component: TableInput },
+	{ path: '/sbc_frontend/about', component: About },
+	{ path: '/sbc_frontend/disclaimer', component: Disclaimer },
+	{ path: '/sbc_frontend/details/:id', component: DetailContent}
 ]

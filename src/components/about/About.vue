@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="disclaimer">
-				Current version: v.02
+				Current version: v.03
 			</div>
 		</div>
 	</div>
