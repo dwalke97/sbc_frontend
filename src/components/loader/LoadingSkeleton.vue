@@ -4,7 +4,7 @@
 			<div class="flex justify-center w-full pb-3">
 				<div class="non-editable skeleton max-w-40"></div>
 			</div>
-			<TableHeader :is-detail-page="true"/>
+			<TableHeader :is-detail-page="false"/>
 			<div class="w-full grid leading-6 pt-2 gap-4 grid-container"
 					 v-for="_ in 15" >
 				<div v-for="_ in editableCbcKeys" class="flex justify-center items-center flex-col h-fit">
