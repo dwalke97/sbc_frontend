@@ -13,7 +13,7 @@
 			<div class="flex justify-between col-span-3 gap-4">
 			<div class="non-editable">{{cbc.confidence === undefined ? 'Unclassified' : cbc.confidence}}</div>
 			<div class="non-editable">{{cbc.pred === undefined ? 'Unclassified' : cbc.pred }}</div>
-			<router-link :to="getLink(cbc.id)" ><Details :fun="()=>handleDetails(cbc)"/></router-link>
+			<Details :fun="()=>handleDetails(cbc)"/>
 		</div>
     </div>
   </div>
@@ -48,7 +48,7 @@ const filteredCbcs = computed(() =>{
 })
 
 function getLink(id){
-	return `sbc_frontend/details/${id}`
+	return `details/${id}`
 }
 
 
@@ -71,7 +71,7 @@ function updateViewPort(){
 }
 
 async function handleDetails(cbc){
-	// await router.push(`sbc_frontend/details/${cbc.id}`)
+	await router.push(`/details/${cbc.id}`)
 }
 
 onBeforeUpdate(()=>{
