@@ -47,6 +47,10 @@
 					</li>
 				</ul>
 			</div>
+
+			<div class="disclaimer">
+				Current version: v.01
+			</div>
 		</div>
 	</div>
 
