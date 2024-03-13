@@ -71,7 +71,7 @@ function updateViewPort(){
 }
 
 async function handleDetails(cbc){
-	await router.push(`/details/${cbc.id}`)
+	await router.push(`/sbc_frontend/details/${cbc.id}`)
 }
 
 onBeforeUpdate(()=>{
