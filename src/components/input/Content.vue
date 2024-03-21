@@ -1,32 +1,30 @@
 <template>
-  <div class="custom-content-height overflow-y-auto w-full overflow-x-auto pb-2 pt-2" @scroll="updateViewPort">
-    <div class="min-w-full grid leading-6 pt-2 gap-4 grid-container" :class="''"
+  <tbody class="w-full overflow-x-auto pb-2 pt-2 block" @scroll="updateViewPort">
+    <tr class="grid leading-6 pt-2 gap-4 grid-container" :class="''"
          v-for="(cbc, idx) in filteredCbcs" :id="idx">
-      <div v-for="cbcKey in editableCbcKeys" class="flex justify-center items-center flex-col h-fit">
+      <td v-for="cbcKey in editableCbcKeys" class="flex justify-center items-center flex-col h-fit">
           <input
               class="p-2 rounded-md w-full w-32 text-right text-black" :value="cbc[cbcKey]"
               :type="type(cbcKey)"
               :placeholder="cbcKey"
               @input="event => valueInput(event, cbc, cbcKey)" @change="event => valueInput(event, cbc, cbcKey)"/>
-      </div>
-			<div class="non-editable">{{cbc.groundTruth === undefined ? 'Unknown' : cbc.groundTruth}}</div>
-			<div class="flex justify-between col-span-3 gap-4">
-			<div class="non-editable">{{cbc.confidence === undefined ? 'Unclassified' : cbc.confidence}}</div>
-			<div class="non-editable">{{cbc.pred === undefined ? 'Unclassified' : cbc.pred }}</div>
-			<Details :fun="()=>handleDetails(cbc)"/>
-		</div>
-    </div>
-  </div>
+      </td>
+			<td class="non-editable">{{cbc.groundTruth === undefined ? 'Unknown' : cbc.groundTruth}}</td>
+			<td class="non-editable">{{cbc.confidence === undefined ? 'Unclassified' : cbc.confidence}}</td>
+			<td class="non-editable">{{cbc.pred === undefined ? 'Unclassified' : cbc.pred }}</td>
+			<td><Details :fun="()=>handleDetails(cbc)"/></td>
+    </tr>
+  </tbody>
 </template>
 
 <script setup>
 import { Bar } from 'vue-chartjs'
-import {chartOptions} from "../lib/constants/ChartOptions.js";
+import {chartOptions} from "../../lib/constants/ChartOptions.js";
 import {computed, onUpdated, ref, onBeforeUpdate} from "vue";
-import {editableCbcKeys} from "../lib/TableGrid.js"
-import Details from "./icons/Details.vue";
-import {useCbcStore} from "../stores/CbcStore.js";
-import {router} from "../router/Router.js";
+import {editableCbcKeys} from "../../lib/TableGrid.js"
+import Details from "./../icons/Details.vue";
+import {useCbcStore} from "../../stores/CbcStore.js";
+import {router} from "../../router/Router.js";
 
 const options = chartOptions
 
@@ -50,7 +48,6 @@ const filteredCbcs = computed(() =>{
 function getLink(id){
 	return `sbc_frontend/details/${id}`
 }
-
 
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
@@ -92,6 +89,6 @@ onUpdated(()=>{
 }
 
 .custom-content-height{
-	max-height: calc(100% - 156px - 56px - 56px);
+	max-height: calc(100% - 156px - 56px - 144px);
 }
 </style>

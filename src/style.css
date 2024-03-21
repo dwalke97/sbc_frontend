@@ -32,8 +32,24 @@ button, label, .grid-item{
 .custom-height{
   height: calc(100% - 48px);
 }
-
 .grid-container {
+  display: grid;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+td{
+  min-width: 5rem;
+  text-overflow: ".";
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+td{
+  @apply text-sm lg:text-base
+}
+
+.grid-container-small {
   display: grid;
   grid-template-columns: repeat(13, minmax(0, 1fr));
   gap: 1rem;

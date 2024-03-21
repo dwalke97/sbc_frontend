@@ -1,12 +1,17 @@
 <template>
   <div class="w-full custom-height pt-4 pl-4 pb-4">
-		<div class="flex justify-center items-center gap-4">
+		<div class="flex justify-center items-center gap-4 pb-4">
 			<FileInput />
 			<button class="rounded-md shadow-md hover:scale-105 p-4 bg-sky-700 cursor-pointer hover:bg-sky-600" v-if="hasFilters" @click="resetFilters">Reset Filter</button>
 			<div class="bg-gray-600 p-4 rounded-md">Samples count: {{cbc_counts}}</div>
 		</div>
-		<TableHeader :is-detail-page="false"/>
-		<Content/>
+		<div class="w-full overflow-x-auto max-h-[80%]">
+			<table class="table-auto min-w-[1300px] h-full relative">
+				<TableHeader :is-detail-page="false"/>
+				<Content/>
+			</table>
+		</div>
+
 		<div class="p-2">
 			<div class="flex justify-center w-full mt-4">
 				<button
@@ -24,8 +29,7 @@ import {computed, ref} from "vue";
 import SubmitButton from "./results/SubmitButton.vue";
 import FileInput from "./input/FileInput.vue";
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-import Content from "./Content.vue";
-import FilterDropdown from "./FilterDropdown.vue";
+import Content from "./input/Content.vue";
 import TableHeader from "./input/TableHeader.vue";
 import {DEFAULT_CBC} from "../lib/constants/CBC_Constants.js";
 import {useCbcStore} from "../stores/CbcStore.js";
